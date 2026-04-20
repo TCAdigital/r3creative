@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing Premium • R3 CREATIVE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 150, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 255, 150, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(0, 255, 150, 0.07) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===================== LANDING PAGE ===================== */
+        .landing-page {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .landing-page.hidden {
+            display: none;
+        }
+
+        .landing-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 150, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .landing-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            width: 100%;
+            gap: 80px;
+            align-items: flex-start;
+            padding: 80px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .landing-left {
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .landing-right {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #00ff99;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .landing-title {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .landing-subtitle {
+            font-size: 16px;
+            color: #999999;
+            line-height: 1.6;
+            margin-bottom: 60px;
+        }
+
+        .login-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .btn-login {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #ffffff;
+            color: #0a0a0a;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-login:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .divider-text {
+            text-align: center;
+            font-size: 13px;
+            color: #666666;
+            margin: 20px 0;
+        }
+
+        .btn-continue-no-login {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #00ff99;
+            color: #0a0a0a;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn-continue-no-login:hover {
+            background: #00e680;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 255, 153, 0.2);
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 16px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .stat-card {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid #222222;
+            border-radius: 12px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #00ff99;
+            margin-bottom: 16px;
+        }
+
+        .stat-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .stat-description {
+            font-size: 14px;
+            color: #999999;
+            line-height: 1.7;
+        }
+
+        /* ===================== FORM PAGE ===================== */
+        .form-page {
+            display: none;
+            min-height: 100vh;
+            background: #0a0a0a;
+            padding: 40px 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-page.active {
+            display: flex;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(15, 15, 15, 0.6);
+            border: 1px solid #222222;
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 600px;
+            max-height: 85vh;
+        }
+
+        /* Sidebar */
+        .form-sidebar {
+            background: rgba(10, 10, 10, 0.8);
+            border-right: 1px solid #222222;
+            padding: 40px 30px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            margin-bottom: 40px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-bar-container {
+            height: 4px;
+            background: #222222;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #00ff99;
+            transition: width 0.4s ease;
+        }
+
+        .sidebar-content {
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 1px solid #222222;
+        }
+
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            background: rgba(0, 255, 153, 0.15);
+            color: #00ff99;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-checklist {
+            list-style: none;
+        }
+
+        .sidebar-checklist li {
+            font-size: 13px;
+            color: #999999;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-checklist li::before {
+            content: '✓';
+            color: #00ff99;
+            font-weight: 700;
+        }
+
+        /* Main form content */
+        .form-main {
+            padding: 60px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-main::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .form-main::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .form-main::-webkit-scrollbar-thumb {
+            background: #222222;
+            border-radius: 3px;
+        }
+
+        .form-main::-webkit-scrollbar-thumb:hover {
+            background: #333333;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-step-header {
+            margin-bottom: 50px;
+        }
+
+        .form-step-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .form-step-subtitle {
+            font-size: 16px;
+            color: #999999;
+            line-height: 1.6;
+        }
+
+        .form-options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex: 1;
+        }
+
+        .form-options-grid.full-width {
+            grid-template-columns: 1fr;
+        }
+
+        .form-options-grid.three-cols {
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .option-card {
+            padding: 20px;
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid #222222;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .option-card:hover {
+            border-color: #00ff99;
+            background: rgba(0, 255, 153, 0.05);
+        }
+
+        .option-card.selected {
+            border-color: #00ff99;
+            background: rgba(0, 255, 153, 0.1);
+        }
+
+        .option-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .option-card-text {
+            font-size: 13px;
+            color: #999999;
+            line-height: 1.5;
+        }
+
+        .form-input-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid #222222;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-input::placeholder {
+            color: #666666;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00ff99;
+            background: rgba(0, 255, 153, 0.05);
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid #222222;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-textarea::placeholder {
+            color: #666666;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #00ff99;
+            background: rgba(0, 255, 153, 0.05);
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #222222;
+        }
+
+        .btn-back {
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid #222222;
+            color: #ffffff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            border-color: #00ff99;
+            color: #00ff99;
+        }
+
+        .btn-next {
+            padding: 12px 32px;
+            background: #00ff99;
+            border: none;
+            color: #0a0a0a;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-next:hover {
+            background: #00e680;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 255, 153, 0.2);
+        }
+
+        .btn-next:disabled {
+            background: #666666;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .review-item {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .review-item-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .review-item-value {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Success page */
+        .success-section {
+            display: none;
+            min-height: 100vh;
+            background: #0a0a0a;
+            padding: 60px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-section.active {
+            display: flex;
+        }
+
+        .success-content {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 255, 153, 0.15);
+            border: 2px solid #00ff99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            font-size: 40px;
+            font-weight: 700;
+            color: #00ff99;
+        }
+
+        .success-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .success-subtitle {
+            font-size: 16px;
+            color: #999999;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-success {
+            padding: 14px 32px;
+            background: #00ff99;
+            border: none;
+            color: #0a0a0a;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background: #00e680;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 255, 153, 0.2);
+        }
+
+        .btn-success-secondary {
+            padding: 14px 32px;
+            background: transparent;
+            border: 1px solid #222222;
+            color: #ffffff;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success-secondary:hover {
+            border-color: #00ff99;
+            color: #00ff99;
+        }
+
+        /* Responsivo */
+        @media (max-width: 1024px) {
+            .landing-content {
+                flex-direction: column;
+                gap: 40px;
+                padding: 40px 30px;
+            }
+
+            .landing-title {
+                font-size: 42px;
+            }
+
+            .form-container {
+                flex-direction: column;
+            }
+
+            .form-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #222222;
+            }
+
+            .form-options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .landing-content {
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .landing-title {
+                font-size: 32px;
+            }
+
+            .form-sidebar {
+                padding: 20px;
+            }
+
+            .form-main {
+                padding: 30px 20px;
+            }
+
+            .form-step-title {
+                font-size: 28px;
+            }
+
+            .stat-card {
+                padding: 24px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div class="landing-page" id="landingPage">
+    <div class="landing-content">
+        <div class="landing-left">
+            <div class="header-label">BRIEFING PREMIUM • R3 CREATIVE</div>
+            <h1 class="landing-title">Vamos transformar sua ideia em um projeto estratégico.</h1>
+            <p class="landing-subtitle">Leva menos de 3 minutos para entendermos seu projeto e te entregar o melhor caminho.</p>
+
+            <div class="login-options">
+                <button class="btn-login" onclick="goToForm()">Continuar com Google</button>
+                <button class="btn-login" onclick="goToForm()">Continuar com Apple</button>
+            </div>
+
+            <div class="divider-text">ou, se preferir</div>
+
+            <button class="btn-continue-no-login" onclick="goToForm()">Continuar sem login</button>
+            <p class="footer-text">Se preferir, você pode preencher tudo sem criar conta.</p>
+        </div>
+
+        <div class="landing-right">
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-title">DE ASSERTIVIDADE INICIAL</div>
+                <div class="stat-description">O formulário não apenas pergunta, ele consulta. Essa clareza inicial economiza horas de reunião e direciona a proposta comercial para o fechamento imediato.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FORM PAGE -->
+<div class="form-page" id="formPage">
+    <div class="form-container">
+        <!-- Sidebar -->
+        <div class="form-sidebar">
+            <div class="sidebar-header">
+                <div class="progress-label">
+                    <span>Progresso</span>
+                    <span id="progressText">01/14</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progressFill" style="width: 7%"></div>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="sidebar-badge" id="sidebarBadge">Diagnóstico</div>
+                <div class="sidebar-title" id="sidebarTitle">Entendendo o Cenário</div>
+                <p style="font-size: 13px; color: #999999; line-height: 1.6; margin-bottom: 16px;">A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.</p>
+                <ul class="sidebar-checklist">
+                    <li>Visão clara de negócios</li>
+                    <li>Alinhamento inicial</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="form-main">
+            <!-- Step 0: Welcome -->
+            <div class="form-step active" id="step0">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Bem-vindo ao Briefing R3</h2>
+                    <p class="form-step-subtitle">Leva menos de 3 minutos para darmos o primeiro passo estratégico.</p>
+                </div>
+
+                <p style="color: #999999; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">Você optou por continuar sua jornada. Clique em próximo para iniciarmos as perguntas sobre seu negócio.</p>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <div></div>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 1: What do you need? -->
+            <div class="form-step" id="step1">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">O que você precisa hoje?</h2>
+                    <p class="form-step-subtitle">Selecione uma ou mais opções para personalizarmos sua experiência.</p>
+                </div>
+
+                <div class="form-options-grid">
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Construir ou reposicionar minha marca</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Criar ou melhorar meu site</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Aumentar vendas com marketing</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Tráfego pago e performance</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Gestão de redes sociais</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Design e materiais criativos</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Registrar minha marca</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Proteger uma patente</div>
+                    </div>
+                    <div class="option-card" onclick="toggleOption(this)">
+                        <div class="option-card-title">Outro</div>
+                    </div>
+                </div>
+
+                <p style="color: #999999; font-size: 12px; margin-top: 20px;">Você pode selecionar mais de uma opção.</p>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Business description -->
+            <div class="form-step" id="step2">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Conte um pouco sobre seu negócio</h2>
+                    <p class="form-step-subtitle">Isso nos ajuda a entender seu momento atual.</p>
+                </div>
+
+                <div class="form-input-group">
+                    <input type="text" class="form-input" placeholder="Como sua empresa é conhecida?">
+                </div>
+
+                <div class="form-input-group">
+                    <input type="text" class="form-input" placeholder="Em qual mercado você atua?">
+                </div>
+
+                <div class="form-input-group">
+                    <input type="text" class="form-input" placeholder="Há quanto tempo está em operação?">
+                </div>
+
+                <div class="form-input-group">
+                    <input type="text" class="form-input" placeholder="Onde sua empresa está localizada?">
+                </div>
+
+                <div class="form-input-group">
+                    <div style="border: 2px dashed #333333; border-radius: 8px; padding: 40px; text-align: center; cursor: pointer; transition: all 0.3s ease;"
+                         onmouseover="this.style.borderColor='#00ff99'; this.style.backgroundColor='rgba(0, 255, 153, 0.05)'"
+                         onmouseout="this.style.borderColor='#333333'; this.style.backgroundColor='transparent'">
+                        <span style="font-size: 20px;">📁</span>
+                        <p style="margin-top: 12px; font-size: 14px; color: #999999;">Clique para enviar logo, apresentações ou referências (Opcional)</p>
+                    </div>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Main objective -->
+            <div class="form-step" id="step3">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Qual é o principal objetivo do seu projeto?</h2>
+                    <p class="form-step-subtitle">Vamos direcionar tudo com base nisso.</p>
+                </div>
+
+                <div class="form-options-grid full-width">
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Aumentar vendas</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Gerar mais leads</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Fortalecer minha marca</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Lançar um produto ou serviço</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Escalar meu negócio</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Proteger minha marca ou ideia</div>
+                    </div>
+                </div>
+
+                <p style="color: #999999; font-size: 12px; margin-top: 20px;">Com base na sua escolha, vamos adaptar as próximas etapas.</p>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Target audience -->
+            <div class="form-step" id="step4">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Quem você quer alcançar?</h2>
+                    <p class="form-step-subtitle">Quanto mais claro isso for, mais estratégico será seu projeto.</p>
+                </div>
+
+                <div class="form-input-group">
+                    <label class="form-label">Foco do cliente:</label>
+                    <div class="form-options-grid full-width">
+                        <div class="option-card" onclick="selectSingleOption(this)">
+                            <div class="option-card-title">Empresas (B2B)</div>
+                        </div>
+                        <div class="option-card" onclick="selectSingleOption(this)">
+                            <div class="option-card-title">Consumidor (B2C)</div>
+                        </div>
+                        <div class="option-card" onclick="selectSingleOption(this)">
+                            <div class="option-card-title">Ambos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Competitors -->
+            <div class="form-step" id="step5">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Quem são seus principais concorrentes?</h2>
+                    <p class="form-step-subtitle">Se você já acompanha alguém, isso acelera muito nossa análise.</p>
+                </div>
+
+                <div class="form-input-group">
+                    <label class="form-label">📁 Envie prints ou referências de concorrentes (Opcional)</label>
+                    <textarea class="form-textarea" placeholder="Nomes dos seus concorrentes..."></textarea>
+                    <p class="form-hint">Não se preocupe se não souber — podemos te ajudar com isso.</p>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 6: Style -->
+            <div class="form-step" id="step6">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Qual estilo mais combina com o que você imagina?</h2>
+                    <p class="form-step-subtitle">Isso ajuda a alinhar direção criativa desde o início.</p>
+                </div>
+
+                <div class="form-options-grid">
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Moderno</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Minimalista</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Luxuoso</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Corporativo</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Criativo</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Tecnológico</div>
+                    </div>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 7: Expectations -->
+            <div class="form-step" id="step7">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">O que exatamente você espera deste projeto?</h2>
+                    <p class="form-step-subtitle">Vamos definir o escopo ideal.</p>
+                </div>
+
+                <div class="form-input-group">
+                    <textarea class="form-textarea" placeholder="Descreva suas expectativas..."></textarea>
+                    <p class="form-hint">Se não tiver certeza, nós te orientamos na próxima etapa.</p>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 8: Timeline -->
+            <div class="form-step" id="step8">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Qual o prazo ideal para esse projeto?</h2>
+                    <p class="form-step-subtitle">Alinhar expectativas de tempo é fundamental.</p>
+                </div>
+
+                <div class="form-options-grid full-width">
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Preciso com urgência (até 7 dias)</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Curto prazo (15–30 dias)</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Médio prazo (1–3 meses)</div>
+                    </div>
+                    <div class="option-card" onclick="selectSingleOption(this)">
+                        <div class="option-card-title">Ainda estou planejando</div>
+                    </div>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 9: Budget -->
+            <div class="form-step" id="step9">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Qual faixa de investimento você considera?</h2>
+                    <p class="form-step-subtitle">Isso nos ajuda a propor a melhor solução possível.</p>
+                </div>
+
+                <div class="form-input-group">
+                    <input type="range" class="form-input" style="height: 6px;" min="1000" max="100000" step="1000" value="15000" oninput="updateBudgetDisplay(this)">
+                    <div style="display: flex; justify-content: space-between; margin-top: 20px; font-size: 12px; color: #666666;">
+                        <span>R$ 1k</span>
+                        <span id="budgetDisplay" style="color: #00ff99; font-weight: 600;">R$ 15k</span>
+                        <span>R$ 100k+</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(0, 255, 153, 0.05); border: 1px solid #222222; border-radius: 8px;">
+                    <p style="font-size: 13px; color: #999999; line-height: 1.6;">Projetos estratégicos são construídos sob medida — vamos adaptar à sua realidade.</p>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 10: Growth barriers -->
+            <div class="form-step" id="step10">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">O que hoje mais impede seu crescimento?</h2>
+                    <p class="form-step-subtitle">Entender a dor real guia a nossa solução.</p>
+                </div>
+
+                <div class="form-input-group">
+                    <textarea class="form-textarea" placeholder="Descreva os principais obstáculos..."></textarea>
+                    <p class="form-hint">Essa resposta é essencial para criarmos algo realmente eficaz.</p>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 11: Contact -->
+            <div class="form-step" id="step11">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Estamos quase lá. Como podemos falar com você?</h2>
+                    <p class="form-step-subtitle">Seus dados estão seguros e não serão compartilhados.</p>
+                </div>
+
+                <div class="form-input-group">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-input" placeholder="Seu nome completo">
+                </div>
+
+                <div class="form-input-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" placeholder="seu@email.com">
+                </div>
+
+                <div class="form-input-group">
+                    <label class="form-label">Telefone</label>
+                    <input type="tel" class="form-input" placeholder="(00) 0000-0000">
+                </div>
+
+                <div class="form-input-group">
+                    <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 14px;">
+                        <input type="checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #00ff99;">
+                        Concordo com o uso dos meus dados para contato e proposta.
+                    </label>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="nextStep()">Próximo Passo</button>
+                </div>
+            </div>
+
+            <!-- Step 12: Review -->
+            <div class="form-step" id="step12">
+                <div class="form-step-header">
+                    <h2 class="form-step-title">Revise seu briefing</h2>
+                    <p class="form-step-subtitle">Confira as informações antes de enviar.</p>
+                </div>
+
+                <div class="review-grid">
+                    <div class="review-item">
+                        <div class="review-item-label">O que você precisa</div>
+                        <div class="review-item-value">6 opções selecionadas</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-item-label">Objetivo principal</div>
+                        <div class="review-item-value">Aumentar vendas</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-item-label">Público-alvo</div>
+                        <div class="review-item-value">B2B</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-item-label">Estilo</div>
+                        <div class="review-item-value">Moderno</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-item-label">Prazo</div>
+                        <div class="review-item-value">Curto prazo (15-30 dias)</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-item-label">Investimento</div>
+                        <div class="review-item-value">R$ 15.000</div>
+                    </div>
+                </div>
+
+                <div style="flex: 1;"></div>
+
+                <div class="form-footer">
+                    <button class="btn-back" onclick="prevStep()">Voltar</button>
+                    <button class="btn-next" onclick="submitForm()">Enviar Briefing</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SUCCESS PAGE -->
+<div class="success-section" id="successPage">
+    <div class="success-content">
+        <div class="success-icon">✓</div>
+        <h2 class="success-title">Perfeito. Recebemos seu briefing.</h2>
+        <p class="success-subtitle">Nosso time vai analisar e montar um direcionamento estratégico para você. Projetos bem definidos começam com decisões estratégicas — e você já deu o primeiro passo.</p>
+        <div class="success-actions">
+            <button class="btn-success" onclick="openWhatsApp()">Falar no WhatsApp agora</button>
+            <button class="btn-success-secondary" onclick="openCalendar()">Agendar uma reunião</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentStep = 0;
+    const totalSteps = 13;
+
+    function goToForm() {
+        document.getElementById('landingPage').classList.add('hidden');
+        document.getElementById('formPage').classList.add('active');
+        updateProgress();
+    }
+
+    function nextStep() {
+        if (currentStep < totalSteps - 1) {
+            currentStep++;
+            updateUI();
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 0) {
+            currentStep--;
+            updateUI();
+        }
+    }
+
+    function updateUI() {
+        document.querySelectorAll('.form-step').forEach((step, index) => {
+            step.classList.remove('active');
+            if (document.getElementById(`sidebarStep${index}`)) {
+                document.getElementById(`sidebarStep${index}`).classList.remove('active');
+            }
+        });
+
+        document.getElementById(`step${currentStep}`).classList.add('active');
+        if (currentStep < totalSteps - 1 && document.getElementById(`sidebarStep${currentStep}`)) {
+            document.getElementById(`sidebarStep${currentStep}`).classList.add('active');
+        }
+
+        updateProgress();
+        updateSidebarContent();
+        document.querySelector('.form-main').scrollTop = 0;
+    }
+
+    function updateProgress() {
+        const progress = ((currentStep) / (totalSteps - 1)) * 100;
+        document.getElementById('progressFill').style.width = progress + '%';
+        document.getElementById('progressText').textContent = `0${currentStep + 1}/${totalSteps}`;
+    }
+
+    function updateSidebarContent() {
+        const sidebarData = [
+            { badge: 'Diagnóstico', title: 'Bem-vindo ao Briefing R3', text: 'Leva menos de 3 minutos para darmos o primeiro passo estratégico.', items: ['Agilidade no processo', 'Clareza de objetivos'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Entendendo o Cenário', text: 'A primeira etapa é fundamental para mapearmos seu momento atual e o tamanho do desafio.', items: ['Visão clara de negócios', 'Alinhamento inicial'] },
+            { badge: 'Diagnóstico', title: 'Últimos detalhes', text: 'Praticamente lá. Falta pouco.', items: ['Confirmação de dados', 'Autorização'] },
+            { badge: 'Revisar', title: 'Revisão Final', text: 'Confira tudo antes de enviar.', items: ['Tudo certo?', 'Pronto para enviar'] }
+        ];
+
+        const data = sidebarData[currentStep] || sidebarData[0];
+        
+        document.getElementById('sidebarBadge').textContent = data.badge;
+        document.getElementById('sidebarTitle').textContent = data.title;
+        
+        const contentP = document.querySelector('.sidebar-content p');
+        if (contentP) contentP.textContent = data.text;
+        
+        const checklist = document.querySelector('.sidebar-checklist');
+        if (checklist) {
+            checklist.innerHTML = data.items.map(item => `<li>${item}</li>`).join('');
+        }
+    }
+
+    function toggleOption(element) {
+        element.classList.toggle('selected');
+    }
+
+    function selectSingleOption(element) {
+        const siblings = element.parentElement.querySelectorAll('.option-card');
+        siblings.forEach(sibling => sibling.classList.remove('selected'));
+        element.classList.add('selected');
+    }
+
+    function updateBudgetDisplay(input) {
+        const value = parseInt(input.value);
+        const formatted = 'R$ ' + (value / 1000).toFixed(0) + 'k';
+        document.getElementById('budgetDisplay').textContent = formatted;
+    }
+
+    function submitForm() {
+        document.getElementById('formPage').classList.remove('active');
+        document.getElementById('successPage').classList.add('active');
+    }
+
+    function openWhatsApp() {
+        window.open('https://wa.me/5511999999999', '_blank');
+    }
+
+    function openCalendar() {
+        window.open('https://calendly.com', '_blank');
+    }
+
+    updateProgress();
+    updateSidebarContent();
+</script>
+
+</body>
+</html>
