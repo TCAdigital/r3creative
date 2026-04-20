@@ -68,26 +68,24 @@ export const BriefingWizard: React.FC = () => {
   const activeSidebarInfo = getSidebarInfo();
   const progress = Math.min(((currentStep + 1) / 14) * 100, 100);
 
-  if (isFinalStep) {
-    return <SuccessStep />;
-  }
-
   return (
     <div className="form-page active">
       <div className="form-container">
         
         {/* Sidebar */}
-        <div className="form-sidebar">
+        <div className={isFinalStep ? "form-sidebar success-mode" : "form-sidebar"}>
           <img src="/images/logo.png" alt="R3 Creative" className="sidebar-logo" />
-          <div className="sidebar-header">
-              <div className="progress-label">
-                  <span>Progresso</span>
-                  <span>{String(currentStep + 1).padStart(2, '0')}/14</span>
-              </div>
-              <div className="progress-bar-container">
-                  <div className="progress-bar-fill" style={{ width: `${progress}%` }}></div>
-              </div>
-          </div>
+          {!isFinalStep && (
+            <div className="sidebar-header">
+                <div className="progress-label">
+                    <span>Progresso</span>
+                    <span>{String(currentStep + 1).padStart(2, '0')}/14</span>
+                </div>
+                <div className="progress-bar-container">
+                    <div className="progress-bar-fill" style={{ width: `${progress}%` }}></div>
+                </div>
+            </div>
+          )}
 
           <div className="sidebar-content">
               <div className="sidebar-badge">{activeSidebarInfo.badge}</div>
@@ -109,15 +107,17 @@ export const BriefingWizard: React.FC = () => {
         <div className="form-main">
           {renderStep()}
 
-          <div className="form-footer">
-            {currentStep > 0 ? (
-              <button className="btn-back" onClick={prevStep}>Voltar</button>
-            ) : <div />}
-            
-            <button className="btn-next" onClick={nextStep}>
-              {currentStep === 13 ? "Finalizar Briefing" : "Próximo Passo"}
-            </button>
-          </div>
+          {!isFinalStep && (
+            <div className="form-footer">
+              {currentStep > 0 ? (
+                <button className="btn-back" onClick={prevStep}>Voltar</button>
+              ) : <div />}
+              
+              <button className="btn-next" onClick={nextStep}>
+                {currentStep === 13 ? "Finalizar Briefing" : "Próximo Passo"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

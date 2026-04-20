@@ -43,35 +43,37 @@ export const SuccessStep: React.FC = () => {
   };
 
   return (
-    <div className="success-section active">
-        <div className="success-content">
-            <img src="/images/logo.png" alt="R3 Creative" className="landing-logo" style={{ margin: '0 auto 40px' }} />
-            <div className="success-icon">✓</div>
-            <h2 className="success-title">Briefing Recebido!</h2>
-            <p className="success-subtitle">Obrigado por compartilhar essas informações. Agora nosso time vai analisar os dados e preparar um plano de ação para você.</p>
-            
-            <div style={{ marginBottom: "30px", fontSize: "14px", color: emailStatus === 'error' ? "#ff6b6b" : "#999999" }}>
-              {emailStatus === 'sending' && "Enviando dados do briefing para a agência segura..."}
-              {emailStatus === 'sent' && "✅ Uma cópia dos dados foi enviada com sucesso para nossa central segura."}
-              {emailStatus === 'error' && "⚠️ Houve um problema ao disparar o e-mail automático, mas seu briefing está salvo. Por favor, avise-nos no WhatsApp."}
+    <div className="form-step active text-center flex flex-col items-center justify-center py-10">
+        <div className="success-icon mb-8">✓</div>
+        <h2 className="form-step-title mb-4">Briefing Recebido!</h2>
+        <p className="form-step-subtitle mb-10 max-w-[500px] mx-auto text-center">Obrigado por compartilhar essas informações. Agora nosso time vai analisar os dados e preparar um plano de ação para você.</p>
+        
+        <div style={{ marginBottom: "40px", fontSize: "14px", color: emailStatus === 'error' ? "#ff6b6b" : "#999999" }}>
+          {emailStatus === 'sending' && (
+            <div className="flex items-center justify-center gap-2">
+              <span className="inline-block w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
+              Enviando dados para processamento...
             </div>
+          )}
+          {emailStatus === 'sent' && "✅ Uma cópia dos dados foi enviada com sucesso para nossa central segura."}
+          {emailStatus === 'error' && "⚠️ Seu briefing foi recebido! Tivemos um problema com a cópia por e-mail, mas os dados estão salvos. Por favor, prossiga para o WhatsApp."}
+        </div>
 
-            <div className="success-actions">
-                <a 
-                  href={generateWhatsAppMessage()} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-success"
-                >
-                  Falar no WhatsApp
-                </a>
-                <button 
-                  className="btn-success-secondary" 
-                  onClick={() => window.location.reload()}
-                >
-                  Voltar ao Início
-                </button>
-            </div>
+        <div className="success-actions mt-auto md:mt-0">
+            <a 
+              href={generateWhatsAppMessage()} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-success inline-block"
+            >
+              Falar no WhatsApp
+            </a>
+            <button 
+              className="btn-success-secondary" 
+              onClick={() => window.location.reload()}
+            >
+              Voltar ao Início
+            </button>
         </div>
     </div>
   );

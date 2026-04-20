@@ -26,13 +26,20 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error("Resend API Error:", error);
-      return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+      console.error("Resend API Error (Detailed):", JSON.stringify(error, null, 2));
+      return NextResponse.json({ 
+        success: false, 
+        error: error.message,
+        code: (error as any).code || "resend_error"
+      }, { status: 400 });
     }
 
     return NextResponse.json({ success: true, data: responseData });
   } catch (error) {
-    console.error("Failed to parse request or send email:", error);
-    return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 });
+    console.error("Critical Server Error in /api/send-briefing:", error);
+    return NextResponse.json({ 
+      success: false, 
+      error: error instanceof Error ? error.message : 'Internal Server Error' 
+    }, { status: 500 });
   }
 }
