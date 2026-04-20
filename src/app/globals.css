@@ -221,6 +221,12 @@ body::before {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.form-sidebar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .sidebar-header {
@@ -314,23 +320,12 @@ body::before {
   display: flex;
   flex-direction: column;
   height: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .form-main::-webkit-scrollbar {
-  width: 6px;
-}
-
-.form-main::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.form-main::-webkit-scrollbar-thumb {
-  background: #222222;
-  border-radius: 3px;
-}
-
-.form-main::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .form-step {
