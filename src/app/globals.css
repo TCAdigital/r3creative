@@ -209,8 +209,9 @@ body::before {
   border: 1px solid #222222;
   border-radius: 20px;
   overflow: hidden;
-  height: 85vh;
-  min-height: 600px;
+  height: auto;
+  min-height: 80vh;
+  max-height: 95vh;
 }
 
 /* Sidebar */
@@ -315,7 +316,7 @@ body::before {
 
 /* Main form content */
 .form-main {
-  padding: 60px;
+  padding: 40px 60px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -334,7 +335,7 @@ body::before {
 }
 
 .form-step-header {
-  margin-bottom: 50px;
+  margin-bottom: 32px;
 }
 
 .form-step-title {
@@ -354,7 +355,7 @@ body::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   flex: 1;
 }
 
@@ -368,14 +369,14 @@ body::before {
 }
 
 .option-card {
-  padding: 20px;
+  padding: 16px;
   background: rgba(15, 15, 15, 0.8);
   border: 1px solid #222222;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
-  min-height: 100px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -475,7 +476,7 @@ body::before {
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 30px;
+  padding-top: 24px;
   border-top: 1px solid #222222;
 }
 
