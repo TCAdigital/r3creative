@@ -11,7 +11,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
     <div className="landing-page">
       <div className="landing-content">
         <div className="landing-left">
-          <div className="header-label">BRIEFING PREMIUM • R3 CREATIVE</div>
+          <img src="/images/logo.png" alt="R3 Creative" className="landing-logo" />
+          <div className="header-label">BRIEFING PREMIUM</div>
           <h1 className="landing-title">Vamos transformar sua ideia em um projeto estratégico.</h1>
           <p className="landing-subtitle">Leva menos de 3 minutos para entendermos seu projeto e te entregar o melhor caminho.</p>
 

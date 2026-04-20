@@ -78,6 +78,7 @@ export const BriefingWizard: React.FC = () => {
         
         {/* Sidebar */}
         <div className="form-sidebar">
+          <img src="/images/logo.png" alt="R3 Creative" className="sidebar-logo" />
           <div className="sidebar-header">
               <div className="progress-label">
                   <span>Progresso</span>

@@ -45,6 +45,7 @@ export const SuccessStep: React.FC = () => {
   return (
     <div className="success-section active">
         <div className="success-content">
+            <img src="/images/logo.png" alt="R3 Creative" className="landing-logo" style={{ margin: '0 auto 40px' }} />
             <div className="success-icon">✓</div>
             <h2 className="success-title">Briefing Recebido!</h2>
             <p className="success-subtitle">Obrigado por compartilhar essas informações. Agora nosso time vai analisar os dados e preparar um plano de ação para você.</p>
