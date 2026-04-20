@@ -128,30 +128,7 @@ body::before {
   margin-bottom: 40px;
 }
 
-.btn-login {
-  padding: 16px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  background: #ffffff;
-  color: #0a0a0a;
-  transition: all 0.3s ease;
-  text-align: center;
-}
 
-.btn-login:hover {
-  background: #f0f0f0;
-  transform: translateY(-2px);
-}
-
-.divider-text {
-  text-align: center;
-  font-size: 13px;
-  color: #666666;
-  margin: 20px 0;
-}
 
 .btn-continue-no-login {
   padding: 16px 24px;

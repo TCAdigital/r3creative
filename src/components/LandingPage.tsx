@@ -17,14 +17,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
           <p className="landing-subtitle">Leva menos de 3 minutos para entendermos seu projeto e te entregar o melhor caminho.</p>
 
           <div className="login-options">
-            <button className="btn-login" onClick={onStart}>Continuar com Google</button>
-            <button className="btn-login" onClick={onStart}>Continuar com Apple</button>
+            <button className="btn-continue-no-login" onClick={onStart}>Iniciar Briefing</button>
           </div>
-
-          <div className="divider-text">ou, se preferir</div>
-
-          <button className="btn-continue-no-login" onClick={onStart}>Continuar sem login</button>
-          <p className="footer-text">Se preferir, você pode preencher tudo sem criar conta.</p>
+          <p className="footer-text">Leva menos de 3 minutos para entendermos seu projeto.</p>
         </div>
 
         <div className="landing-right">
