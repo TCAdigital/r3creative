@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   description: "Transforme sua ideia em um projeto estratégico com a R3 Creative.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

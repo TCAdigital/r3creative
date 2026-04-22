@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useBriefingStore } from "@/store/useBriefingStore";
 import { LandingPage } from "./LandingPage";
 
@@ -23,10 +23,21 @@ import { SuccessStep } from "./steps/SuccessStep";
 export const BriefingWizard: React.FC = () => {
   const { currentStep, nextStep, prevStep } = useBriefingStore();
   const [showLanding, setShowLanding] = useState(true);
+  const mainRef = useRef<HTMLDivElement>(null);
 
   // Prevent hydration errors
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
+
+  // Automatic scroll to top when changing steps
+  useEffect(() => {
+    if (mainRef.current) {
+      if (window.innerWidth <= 1024) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [currentStep]);
 
   if (!mounted) return null;
 
@@ -104,7 +115,7 @@ export const BriefingWizard: React.FC = () => {
         </div>
         
         {/* Main Content */}
-        <div className="form-main">
+        <div className="form-main" ref={mainRef}>
           {renderStep()}
 
           {!isFinalStep && (

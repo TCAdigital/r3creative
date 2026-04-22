@@ -651,19 +651,20 @@ body::before {
   }
 
   .form-container {
-      flex-direction: column;
+      display: flex !important;
+      flex-direction: column !important;
   }
 
   .form-sidebar {
-      width: 100%;
-      height: auto;
+      width: 100% !important;
+      height: auto !important;
       position: relative;
-      border-right: none;
+      border-right: none !important;
       border-bottom: 1px solid #222222;
   }
 
   .form-options-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
   }
 }
 
@@ -678,15 +679,51 @@ body::before {
   }
 
   .form-sidebar {
-      padding: 20px;
+      padding: 20px 20px 16px 20px;
   }
 
+  /* Compact the sidebar for mobile */
+  .sidebar-logo {
+      margin-bottom: 16px;
+      max-height: 32px;
+  }
+
+  .sidebar-content p, 
+  .sidebar-checklist, 
+  .sidebar-badge {
+      display: none !important;
+  }
+
+  .sidebar-title {
+      font-size: 18px;
+      margin-bottom: 0px;
+  }
+
+  .sidebar-header {
+      margin-bottom: 16px;
+  }
+
+  /* Adjust main container to leave space for sticky footer */
   .form-main {
-      padding: 30px 20px;
+      padding: 24px 20px 110px 20px;
+  }
+
+  /* Makes navigation buttons sticky at the bottom on mobile */
+  .form-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 20px;
+      border-top: 1px solid #222222;
+      z-index: 50;
+      margin-top: 0;
   }
 
   .form-step-title {
-      font-size: 28px;
+      font-size: 24px;
   }
 
   .stat-card {
