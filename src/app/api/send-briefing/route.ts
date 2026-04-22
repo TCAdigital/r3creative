@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     const senderEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
     const { data: responseData, error } = await resend.emails.send({
-      from: \`Briefing R3 <\${senderEmail}>\`,
+      from: `Briefing R3 <${senderEmail}>`,
       to: ['luizyolk@gmail.com'],
       subject: `Novo Briefing Premium: ${data.contactName || 'Contato'}`,
       html: htmlContent,
