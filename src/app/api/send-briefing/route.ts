@@ -17,8 +17,10 @@ export async function POST(request: Request) {
 
     const htmlContent = formatBriefingForEmail(data);
 
+    const senderEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+
     const { data: responseData, error } = await resend.emails.send({
-      from: 'Briefing Platform <onboarding@resend.dev>', // Resend default for testing, user will update when verifying domain
+      from: \`Briefing R3 <\${senderEmail}>\`,
       to: ['luizyolk@gmail.com'],
       subject: `Novo Briefing Premium: ${data.contactName || 'Contato'}`,
       html: htmlContent,
