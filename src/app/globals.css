@@ -669,23 +669,41 @@ body::before {
 }
 
 @media (max-width: 640px) {
+  .form-page {
+      padding: 0;
+  }
+  
+  .form-container {
+      border-radius: 0;
+      border: none;
+      min-height: 100dvh;
+      max-height: 100dvh;
+      width: 100%;
+  }
+
   .landing-content {
-      padding: 30px 20px;
-      gap: 30px;
+      padding: 24px 16px;
+      gap: 24px;
   }
 
   .landing-title {
-      font-size: 32px;
+      font-size: 28px;
+      margin-bottom: 16px;
+  }
+
+  .landing-subtitle {
+      margin-bottom: 24px;
+      font-size: 14px;
   }
 
   .form-sidebar {
-      padding: 20px 20px 16px 20px;
+      padding: 16px 16px 12px 16px;
   }
 
   /* Compact the sidebar for mobile */
   .sidebar-logo {
-      margin-bottom: 16px;
-      max-height: 32px;
+      margin-bottom: 12px;
+      max-height: 24px;
   }
 
   .sidebar-content p, 
@@ -695,17 +713,51 @@ body::before {
   }
 
   .sidebar-title {
-      font-size: 18px;
+      font-size: 16px;
       margin-bottom: 0px;
   }
 
   .sidebar-header {
+      margin-bottom: 12px;
+  }
+
+  .progress-label {
+      margin-bottom: 8px;
+  }
+
+  /* Adjust main container to leave exact space for sticky footer */
+  .form-main {
+      padding: 16px 16px 80px 16px;
+  }
+
+  .form-step-header {
+      margin-bottom: 20px;
+  }
+
+  .form-step-title {
+      font-size: 22px;
+      margin-bottom: 8px;
+  }
+
+  .form-step-subtitle {
+     font-size: 14px;
+  }
+
+  .form-options-grid {
+      gap: 12px;
       margin-bottom: 16px;
   }
 
-  /* Adjust main container to leave space for sticky footer */
-  .form-main {
-      padding: 24px 20px 110px 20px;
+  .option-card {
+      padding: 12px;
+  }
+
+  .form-input-group {
+      margin-bottom: 16px;
+  }
+
+  .form-input, .form-textarea {
+      padding: 12px 16px;
   }
 
   /* Makes navigation buttons sticky at the bottom on mobile */
@@ -716,25 +768,28 @@ body::before {
       width: 100%;
       background: rgba(10, 10, 10, 0.95);
       backdrop-filter: blur(10px);
-      padding: 16px 20px;
+      padding: 12px 16px;
       border-top: 1px solid #222222;
       z-index: 50;
       margin-top: 0;
   }
 
-  .form-step-title {
-      font-size: 24px;
+  .btn-next, .btn-back {
+      padding: 10px 20px;
+      font-size: 14px;
   }
 
   .stat-card {
-      padding: 24px;
+      padding: 20px;
   }
 
   .stat-number {
-      font-size: 36px;
+      font-size: 32px;
   }
 
   .review-grid {
       grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 20px;
   }
 }
