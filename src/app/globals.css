@@ -655,6 +655,16 @@ body::before {
       padding: 40px 30px;
   }
 
+  .landing-left, .landing-right {
+      flex: none;
+      max-width: 100%;
+  }
+
+  .landing-right {
+      padding-bottom: 0;
+      justify-content: flex-start;
+  }
+
   .landing-title {
       font-size: 42px;
   }
