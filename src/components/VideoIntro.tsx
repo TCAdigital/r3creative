@@ -44,7 +44,7 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
             onEnded={handleVideoEnd}
             playsInline
             autoPlay
-            muted={false} // User specifically asked for sound
+            muted={true}
           />
         </div>
 
@@ -56,7 +56,7 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
               animate={{ opacity: 1, y: 0 }}
               className="mt-8 text-center"
             >
-              <h1 className="text-base md:text-lg font-light text-white mb-6">
+              <h1 className="text-base md:text-lg font-light text-white mb-12">
                 Acelere resultados. <span className="font-bold text-[#00ff99]">R3 Creative</span>, sua agência de Marketing e Performance!
               </h1>
               
