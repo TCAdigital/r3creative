@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useBriefingStore } from "@/store/useBriefingStore";
 import { LandingPage } from "./LandingPage";
+import { VideoIntro } from "./VideoIntro";
 
 import { WelcomeStep } from "./steps/WelcomeStep";
 import { CategoryStep } from "./steps/CategoryStep";
@@ -22,7 +23,8 @@ import { SuccessStep } from "./steps/SuccessStep";
 
 export const BriefingWizard: React.FC = () => {
   const { currentStep, nextStep, prevStep } = useBriefingStore();
-  const [showLanding, setShowLanding] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
+  const [showLanding, setShowLanding] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
 
   // Prevent hydration errors
@@ -42,6 +44,10 @@ export const BriefingWizard: React.FC = () => {
   if (!mounted) return null;
 
   const isFinalStep = currentStep === 14;
+
+  if (showIntro) {
+    return <VideoIntro onComplete={() => setShowIntro(false)} />;
+  }
 
   if (showLanding && currentStep === 0) {
     return <LandingPage onStart={() => setShowLanding(false)} />;
