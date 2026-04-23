@@ -11,18 +11,15 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
   const [videoEnded, setVideoEnded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Autoplay video (no mute required)
+// Removed manual play effect – native autoplay with muted attribute handles playback
+
+  // Ensure video starts playing on mount (fallback for browsers that block autoplay)
   useEffect(() => {
     if (videoRef.current) {
-      // No mute; play with sound
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => {
+        // Autoplay blocked; will rely on fallback timeout
+      });
     }
-  }, []);
-
-  // Fallback: show content after 12 seconds in case autoplay is blocked
-  useEffect(() => {
-    const fallback = setTimeout(() => setVideoEnded(true), 12_000);
-    return () => clearTimeout(fallback);
   }, []);
 
   const handleVideoEnd = () => {
@@ -41,19 +38,21 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
         >
           <video
             ref={videoRef}
-            src="/VID-20260422-WA0131.mp4"
             className="w-full h-full object-cover"
-            onEnded={handleVideoEnd}
             playsInline
             autoPlay
             muted
+            preload="auto"
+            onEnded={handleVideoEnd}
             onPlay={() => {
-              // Unmute shortly after playback starts to satisfy autoplay policies
               setTimeout(() => {
                 if (videoRef.current) videoRef.current.muted = false;
-              }, 500);
+              }, 300);
             }}
-          />
+          >
+            <source src="/VID-20260422-WA0131.mp4" type="video/mp4" />
+            Seu navegador não suporta a reprodução de vídeo.
+          </video>
         </motion.div>
 
         {/* After video ends */}
