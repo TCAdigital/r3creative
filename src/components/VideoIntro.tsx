@@ -19,6 +19,12 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
     }
   }, []);
 
+  // Fallback: show content after 12 seconds in case autoplay is blocked
+  useEffect(() => {
+    const fallback = setTimeout(() => setVideoEnded(true), 12_000);
+    return () => clearTimeout(fallback);
+  }, []);
+
   const handleVideoEnd = () => {
     setVideoEnded(true);
   };
@@ -40,7 +46,13 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
             onEnded={handleVideoEnd}
             playsInline
             autoPlay
-
+            muted
+            onPlay={() => {
+              // Unmute shortly after playback starts to satisfy autoplay policies
+              setTimeout(() => {
+                if (videoRef.current) videoRef.current.muted = false;
+              }, 500);
+            }}
           />
         </motion.div>
 
