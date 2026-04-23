@@ -11,10 +11,10 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
   const [videoEnded, setVideoEnded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Autoplay muted (required by browsers) then unmute after load if desired
+  // Autoplay video (no mute required)
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.muted = true;
+      // No mute; play with sound
       videoRef.current.play().catch(() => {});
     }
   }, []);
@@ -24,7 +24,7 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-[#0a0a0a] flex flex-col items-center justify-center z-[9999] p-4 text-center">
+    <div className="fixed inset-0 bg-[#000000] flex flex-col items-center justify-center z-[9999] p-4 text-center">
       <div className="w-full max-w-4xl">
         {/* Video container */}
         <motion.div
@@ -40,7 +40,7 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
             onEnded={handleVideoEnd}
             playsInline
             autoPlay
-            muted
+
           />
         </motion.div>
 
@@ -54,9 +54,9 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
               className="mt-12 flex flex-col items-center"
             >
               <motion.h1
-                className="text-2xl md:text-3xl font-light text-white mb-8"
+                className="text-lg md:text-xl font-light text-white mb-8"
               >
-                Acelere seus resultados. <span className="font-bold text-[#00ff99]">R3 Creative</span>, sua agência de Marketing e Performance!
+                Acelere resultados. <span className="font-bold text-[#00ff99]">R3 Creative</span>, sua agência de Marketing e Performance!
               </motion.h1>
               <motion.button
                 whileHover={{ scale: 1.05 }}
