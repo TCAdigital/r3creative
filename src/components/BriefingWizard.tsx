@@ -24,7 +24,7 @@ import { SuccessStep } from "./steps/SuccessStep";
 export const BriefingWizard: React.FC = () => {
   const { currentStep, nextStep, prevStep } = useBriefingStore();
   const [showIntro, setShowIntro] = useState(true);
-  const [showLanding, setShowLanding] = useState(false);
+  const [showLanding, setShowLanding] = useState(true);
   const mainRef = useRef<HTMLDivElement>(null);
 
   // Prevent hydration errors
