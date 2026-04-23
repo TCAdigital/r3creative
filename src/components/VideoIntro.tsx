@@ -8,75 +8,64 @@ interface VideoIntroProps {
 }
 
 export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
-  const [videoEnded, setVideoEnded] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-// Removed manual play effect – native autoplay with muted attribute handles playback
-
-  // Ensure video starts playing on mount (fallback for browsers that block autoplay)
   useEffect(() => {
+    // Safety fallback: if video doesn't trigger end, show content after 10 seconds
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 10000);
+
+    // Attempt to play video
     if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay blocked; will rely on fallback timeout
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay prevented:", error);
+        // If play is blocked, we still want the fallback to work
       });
     }
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleVideoEnd = () => {
-    setVideoEnded(true);
+    setShowContent(true);
   };
 
   return (
-    <div className="fixed inset-0 bg-[#000000] flex flex-col items-center justify-center z-[9999] p-4 text-center">
-      <div className="w-full max-w-4xl">
-        {/* Video container */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="relative w-full aspect-video rounded-2xl overflow-hidden"
-        >
+    <div className="fixed inset-0 bg-[#000000] flex flex-col items-center justify-center z-[9999] overflow-hidden">
+      <div className="w-full max-w-4xl px-4 flex flex-col items-center">
+        {/* Video Player */}
+        <div className="w-full aspect-video relative rounded-lg overflow-hidden bg-black">
           <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            src="/VID-20260422-WA0131.mp4"
+            className="w-full h-full object-contain"
+            onEnded={handleVideoEnd}
             playsInline
             autoPlay
-            muted
-            preload="auto"
-            onEnded={handleVideoEnd}
-            onPlay={() => {
-              setTimeout(() => {
-                if (videoRef.current) videoRef.current.muted = false;
-              }, 300);
-            }}
-          >
-            <source src="/VID-20260422-WA0131.mp4" type="video/mp4" />
-            Seu navegador não suporta a reprodução de vídeo.
-          </video>
-        </motion.div>
+            muted={false} // User specifically asked for sound
+          />
+        </div>
 
-        {/* After video ends */}
+        {/* Content after video */}
         <AnimatePresence>
-          {videoEnded && (
+          {showContent && (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mt-12 flex flex-col items-center"
+              className="mt-8 text-center"
             >
-              <motion.h1
-                className="text-lg md:text-xl font-light text-white mb-8"
-              >
+              <h1 className="text-base md:text-lg font-light text-white mb-6">
                 Acelere resultados. <span className="font-bold text-[#00ff99]">R3 Creative</span>, sua agência de Marketing e Performance!
-              </motion.h1>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              </h1>
+              
+              <button
                 onClick={onComplete}
-                className="btn-next"
+                className="btn-next px-8 py-3 bg-[#00ff99] text-black font-bold rounded-full hover:bg-white transition-all duration-300"
               >
                 Briefing
-              </motion.button>
+              </button>
             </motion.div>
           )}
         </AnimatePresence>
@@ -84,4 +73,3 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({ onComplete }) => {
     </div>
   );
 };
-
