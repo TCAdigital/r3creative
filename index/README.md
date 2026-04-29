@@ -16,7 +16,7 @@ site/
 ## ✅ O que está implementado
 
 ### Design fiel à imagem
-- Tema escuro (#0a0c0a) com acentos verde-neon (#00ff99)
+- Tema escuro (#0a0c0a) com acentos verde-neon (#01cb57)
 - Hero com tipografia gigante "Smart Solutions for a Digital World"
 - Orbs ambient com blur animado (atmosfera neon)
 - Card de fotos com grade overlay (mosaico de equipe)

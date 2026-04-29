@@ -78,7 +78,7 @@ body {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #00ff99;
+  color: #01cb57;
   margin-bottom: 30px;
   text-transform: uppercase;
 }
@@ -121,7 +121,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  background: #00ff99;
+  background: #01cb57;
   color: #0a0a0a;
   transition: all 0.3s ease;
   text-align: center;
@@ -153,7 +153,7 @@ body {
 .stat-number {
   font-size: 48px;
   font-weight: 700;
-  color: #00ff99;
+  color: #01cb57;
   margin-bottom: 16px;
 }
 
@@ -247,7 +247,7 @@ body {
 
 .progress-bar-fill {
   height: 100%;
-  background: #00ff99;
+  background: #01cb57;
   transition: width 0.4s ease;
 }
 
@@ -265,8 +265,8 @@ body {
 
 .sidebar-badge {
   display: inline-block;
-  background: rgba(0, 255, 153, 0.15);
-  color: #00ff99;
+  background: rgba(1, 203, 87, 0.15);
+  color: #01cb57;
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 12px;
@@ -288,13 +288,13 @@ body {
 }
 .sidebar-checklist li::before {
   content: '\2713';
-  color: #00ff99;
+  color: #01cb57;
   font-weight: bold;
 }
 
 .sidebar-checklist li::before {
   content: '\2713';
-  color: #00ff99;
+  color: #01cb57;
   font-weight: 700;
 }
 
@@ -370,13 +370,13 @@ body {
 }
 
 .option-card:hover {
-  border-color: #00ff99;
-  background: rgba(0, 255, 153, 0.05);
+  border-color: #01cb57;
+  background: rgba(1, 203, 87, 0.05);
 }
 
 .option-card.selected {
-  border-color: #00ff99;
-  background: rgba(0, 255, 153, 0.1);
+  border-color: #01cb57;
+  background: rgba(1, 203, 87, 0.1);
 }
 
 .option-card-title {
@@ -422,8 +422,8 @@ body {
 
 .form-input:focus {
   outline: none;
-  border-color: #00ff99;
-  background: rgba(0, 255, 153, 0.05);
+  border-color: #01cb57;
+  background: rgba(1, 203, 87, 0.05);
 }
 
 .form-textarea {
@@ -446,8 +446,8 @@ body {
 
 .form-textarea:focus {
   outline: none;
-  border-color: #00ff99;
-  background: rgba(0, 255, 153, 0.05);
+  border-color: #01cb57;
+  background: rgba(1, 203, 87, 0.05);
 }
 
 .form-hint {
@@ -486,13 +486,13 @@ body {
 }
 
 .btn-back:hover {
-  border-color: #00ff99;
-  color: #00ff99;
+  border-color: #01cb57;
+  color: #01cb57;
 }
 
 .btn-next {
   padding: 12px 32px;
-  background: #00ff99;
+  background: #01cb57;
   border: none;
   color: #0a0a0a;
   border-radius: 6px;
@@ -563,8 +563,8 @@ body {
 .success-icon {
   width: 80px;
   height: 80px;
-  background: rgba(0, 255, 153, 0.15);
-  border: 2px solid #00ff99;
+  background: rgba(1, 203, 87, 0.15);
+  border: 2px solid #01cb57;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -572,7 +572,7 @@ body {
   margin: 0 auto 40px;
   font-size: 40px;
   font-weight: 700;
-  color: #00ff99;
+  color: #01cb57;
 }
 
 .success-title {
@@ -597,7 +597,7 @@ body {
 
 .btn-success {
   padding: 14px 32px;
-  background: #00ff99;
+  background: #01cb57;
   border: none;
   color: #0a0a0a;
   border-radius: 6px;
@@ -627,8 +627,8 @@ body {
 }
 
 .btn-success-secondary:hover {
-  border-color: #00ff99;
-  color: #00ff99;
+  border-color: #01cb57;
+  color: #01cb57;
 }
 
 /* Responsivo */
