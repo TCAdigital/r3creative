@@ -107,25 +107,11 @@ export const AgencyLegacySite: React.FC = () => {
 
   return (
     <div className="agency-legacy-wrap">
-      {/* Decorative ambient orbs */}
-      <div className="ambient" aria-hidden="true">
-        <div className="orb orb-1"></div>
-        <div className="orb orb-2"></div>
-        <div className="orb orb-3"></div>
-        <div className="grain"></div>
-      </div>
-
       {/* ===================== HEADER ===================== */}
       <header className="site-header" id="siteHeader">
         <div className="container header-inner">
           <a href="#hero" className="logo" aria-label="R3 Creative - Página inicial">
-            <span className="logo-mark">
-              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M16 2L29.86 9.5V22.5L16 30L2.14 22.5V9.5L16 2Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round"/>
-                <circle cx="16" cy="16" r="4" fill="currentColor"/>
-              </svg>
-            </span>
-            <span className="logo-text">R3 creative</span>
+            <img src="/images/logo.png" alt="R3 Creative" style={{ height: '40px', width: 'auto' }} />
           </a>
 
           <nav className="nav-main" aria-label="Navegação principal">
@@ -162,7 +148,15 @@ export const AgencyLegacySite: React.FC = () => {
       <main>
         {/* ===================== HERO ===================== */}
         <section className="hero" id="hero">
-          <div className="container">
+          {/* Decorative ambient orbs - MOVED TO HERO ONLY */}
+          <div className="ambient" aria-hidden="true">
+            <div className="orb orb-1"></div>
+            <div className="orb orb-2"></div>
+            <div className="orb orb-3"></div>
+            <div className="grain"></div>
+          </div>
+
+          <div className="container relative z-10">
             <div className="hero-side hero-side-left" aria-hidden="true">
               <span className="rotating-text">SCROLL · TO · EXPLORE · </span>
             </div>
@@ -348,13 +342,27 @@ export const AgencyLegacySite: React.FC = () => {
 
           {/* Marquee tags */}
           <div className="marquee-stack" aria-hidden="true">
-            <div className="marquee-track">
-              <span>Performance Marketing</span><span>•</span>
-              <span>Ultra-Wide Scaling</span><span>•</span>
-              <span>AI Integration</span><span>•</span>
-              <span>Performance Marketing</span><span>•</span>
-              <span>Ultra-Wide Scaling</span><span>•</span>
-              <span>AI Integration</span><span>•</span>
+            <div className="marquee marquee-1">
+              <div className="marquee-track">
+                <span>Mobile App Development</span><span>•</span>
+                <span>Project & Product Consulting</span><span>•</span>
+                <span>Mobile App Development</span><span>•</span>
+                <span>Project & Product Consulting</span><span>•</span>
+                <span>Mobile App Development</span><span>•</span>
+                <span>Project & Product Consulting</span><span>•</span>
+              </div>
+            </div>
+            <div className="marquee marquee-2 reverse">
+              <div className="marquee-track">
+                <span>Web Design</span><span>•</span>
+                <span>Brand Identity</span><span>•</span>
+                <span>UX Research</span><span>•</span>
+                <span>Web Design</span><span>•</span>
+                <span>Brand Identity</span><span>•</span>
+                <span>UX Research</span><span>•</span>
+                <span>Web Design</span><span>•</span>
+                <span>Brand Identity</span><span>•</span>
+              </div>
             </div>
           </div>
         </section>
@@ -612,13 +620,7 @@ export const AgencyLegacySite: React.FC = () => {
         <div className="container">
           <div className="footer-top">
             <a href="#hero" className="logo">
-              <span className="logo-mark">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M16 2L29.86 9.5V22.5L16 30L2.14 22.5V9.5L16 2Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round"/>
-                  <circle cx="16" cy="16" r="4" fill="currentColor"/>
-                </svg>
-              </span>
-              <span className="logo-text">R3 creative</span>
+              <img src="/images/logo.png" alt="R3 Creative" style={{ height: '40px', width: 'auto' }} />
             </a>
             <a href="tel:+5521993197567" className="footer-phone">+55 (21) 99319-7567</a>
           </div>
