@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Bricolage_Grotesque, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./agency.css";
 
-const inter = Inter({
-  variable: "--font-geist-sans",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
-  weight: ["700", "800", "900"],
 });
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+});
+
 
 export const metadata: Metadata = {
   title: "R3 Creative | Briefing Premium",
@@ -32,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+      <body className={`${bricolage.variable} ${plusJakarta.variable} ${jetbrains.variable} antialiased`}>
         <style dangerouslySetInnerHTML={{ __html: `
           body::before { display: none !important; background: none !important; }
           .landing-page::before { display: none !important; }
