@@ -18,10 +18,10 @@
   --ink-3: #8e948a;
   --ink-4: #5e6359;
 
-  --accent: #c6ff3d;
-  --accent-2: #a5d632;
-  --accent-soft: rgba(198, 255, 61, 0.14);
-  --accent-glow: rgba(198, 255, 61, 0.45);
+  --accent: #00ff99;
+  --accent-2: #00e68a;
+  --accent-soft: rgba(0, 255, 153, 0.14);
+  --accent-glow: rgba(0, 255, 153, 0.45);
 
   /* Typography */
   --font-display: var(--font-bricolage), 'Helvetica Neue', sans-serif;
