@@ -39,7 +39,7 @@ export const SuccessStep: React.FC = () => {
   const generateWhatsAppMessage = () => {
     const text = formatBriefingForWhatsApp(data);
     const encodedText = encodeURIComponent(text);
-    return `https://wa.me/5511913435895?text=${encodedText}`;
+    return `https://wa.me/5521993197567?text=${encodedText}`;
   };
 
   return (
