@@ -1,5 +1,5 @@
 /* =========================================
-   GENCYO · Interactivity Layer
+   R3 Creative · Interactivity Layer
    ========================================= */
 
 (() => {

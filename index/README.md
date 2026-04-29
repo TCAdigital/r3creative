@@ -1,4 +1,4 @@
-# Gencyo — Landing Page
+# R3 Creative — Landing Page
 
 Cópia 100% fiel do design enviado, com tema escuro e acentos verde-neon.
 
@@ -74,7 +74,7 @@ site/
 ## 🚀 Como publicar (passos para indexação rápida)
 
 1. Faça upload dos arquivos para seu servidor (raiz do domínio)
-2. Substitua `https://www.gencyo.com` em `index.html`, `robots.txt` e `sitemap.xml` pelo seu domínio real
+2. Substitua `https://www.r3creative.com.br` em `index.html`, `robots.txt` e `sitemap.xml` pelo seu domínio real
 3. Crie a imagem `assets/og-cover.jpg` (1200x630px) para preview social
 4. Acesse o **Google Search Console** → adicione a propriedade
 5. Envie o `sitemap.xml` em "Sitemaps"

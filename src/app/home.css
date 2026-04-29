@@ -1,5 +1,5 @@
 /* ============================================
-   GENCYO · Design System
+   R3 Creative · Design System
    Mobile-first · Dark Neon Green
    ============================================ */
 
@@ -18,10 +18,10 @@
   --ink-3: #8e948a;
   --ink-4: #5e6359;
 
-  --accent: #37c85f;
-  --accent-2: #2ea459;
-  --accent-soft: rgba(55, 200, 95, 0.14);
-  --accent-glow: rgba(55, 200, 95, 0.45);
+  --accent: #c6ff3d;
+  --accent-2: #a5d632;
+  --accent-soft: rgba(198, 255, 61, 0.14);
+  --accent-glow: rgba(198, 255, 61, 0.45);
 
   /* Typography */
   --font-display: var(--font-bricolage), 'Helvetica Neue', sans-serif;

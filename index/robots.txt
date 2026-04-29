@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://www.gencyo.com/sitemap.xml
+Sitemap: https://www.r3creative.com.br/sitemap.xml
