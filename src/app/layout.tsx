@@ -6,16 +6,20 @@ import "./agency.css";
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
+  display: "swap",
 });
 
 
@@ -36,8 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${bricolage.variable} ${plusJakarta.variable} ${jetbrains.variable} antialiased`}>
+    <html lang="pt-BR" className={`${bricolage.variable} ${plusJakarta.variable} ${jetbrains.variable}`}>
+      <body className="antialiased">
         <style dangerouslySetInnerHTML={{ __html: `
           body::before { display: none !important; background: none !important; }
           .landing-page::before { display: none !important; }
