@@ -33,6 +33,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+        <style dangerouslySetInnerHTML={{ __html: `
+          body::before { display: none !important; background: none !important; }
+          .landing-page::before { display: none !important; }
+        `}} />
         {children}
       </body>
     </html>

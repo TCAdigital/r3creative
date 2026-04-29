@@ -12,7 +12,7 @@ import MainFooter from '@/components/MainFooter';
 import ScrollAnimations from '@/components/ScrollAnimations';
 
 import '../home.css';
-import '../premium.css';
+import '../premium-v12.css';
 
 export const metadata = {
   title: 'R3 Creative · Plataforma de Crescimento Orientada por Dados',
