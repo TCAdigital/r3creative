@@ -1,9 +1,5 @@
-import { BriefingWizard } from "@/components/BriefingWizard";
+import { AgencyHome } from "@/components/agency/AgencyHome";
 
 export default function Home() {
-  return (
-    <main>
-      <BriefingWizard />
-    </main>
-  );
+  return <AgencyHome />;
 }

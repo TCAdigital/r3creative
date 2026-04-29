@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+import "./agency.css";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "R3 Creative | Briefing Premium",
-  description: "Transforme sua ideia em um projeto estratégico com a R3 Creative.",
+  title: "R3 Creative | Performance & Growth Platform",
+  description: "Plataforma de crescimento orientada por dados, criatividade e inteligência global.",
 };
 
 export const viewport = {
