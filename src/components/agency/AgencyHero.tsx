@@ -2,108 +2,128 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, Globe, Zap } from "lucide-react";
+import { ArrowRight, Play, Globe, Zap } from "lucide-react";
 import Link from "next/link";
 
 export const AgencyHero: React.FC = () => {
   return (
-    <section className="relative min-height-[100vh] flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background with Glow */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]"></div>
+    <section className="relative pt-40 pb-20 overflow-hidden min-h-screen flex items-center">
+      {/* Decorative Orbs */}
+      <div className="ambient">
+        <div className="orb orb-1 animate-pulse"></div>
+        <div className="orb orb-2 animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className="grain"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container">
+        <div className="grid lg:grid-cols-12 gap-12 items-end">
+          {/* Main Headline */}
+          <div className="lg:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="agency-hero-title">
+                <span className="block overflow-hidden">
+                  <motion.span 
+                    className="block"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
+                  >
+                    Smart Solutions
+                  </motion.span>
+                </span>
+                <span className="block overflow-hidden text-accent italic">
+                  <motion.span 
+                    className="block"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.8, ease: "circOut" }}
+                  >
+                    for a Digital
+                  </motion.span>
+                </span>
+                <span className="block overflow-hidden">
+                  <motion.span 
+                    className="block text-gradient"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.8, ease: "circOut" }}
+                  >
+                    Growth Platform.
+                  </motion.span>
+                </span>
+              </h1>
+            </motion.div>
+          </div>
+
+          {/* Side Info */}
+          <div className="lg:col-span-4 pb-8 lg:pb-16">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="space-y-8"
+            >
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-accent font-mono text-xs uppercase tracking-widest">
+                  <Zap size={14} />
+                  <span>Web Assessment</span>
+                </div>
+                <p className="text-ink-3 text-sm leading-relaxed max-w-sm">
+                  Auditoria completa do seu produto digital atual com diagnóstico estratégico e roadmap acionável para escala global.
+                </p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-accent font-mono text-xs uppercase tracking-widest">
+                  <Globe size={14} />
+                  <span>Growth Strategy</span>
+                </div>
+                <p className="text-ink-3 text-sm leading-relaxed max-w-sm">
+                  A R3 Creative é uma consultoria full-service que ajuda empresas a se tornarem ícones em seu setor através de dados e performance.
+                </p>
+              </div>
+
+              <div className="pt-4">
+                <Link href="/" className="btn-agency btn-agency-primary px-10 py-5 text-lg">
+                  Iniciar Projeto
+                  <ArrowRight size={20} />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Hero Image / Video Placeholder */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1.2, ease: "circOut" }}
+          className="mt-20 relative"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary text-xs font-bold tracking-widest uppercase mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            Growth Platform 2026
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
-            Elevando marcas através de <span className="text-gradient">Dados e Criatividade.</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-white/60 mb-10 leading-relaxed max-w-xl">
-            Não somos apenas uma agência. Somos sua plataforma de crescimento orientada por inteligência, estratégia global e performance extrema.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Link href="/" className="btn-primary-agency px-8 py-4 text-lg w-full sm:w-auto">
-              Iniciar Projeto
-              <ArrowRight size={20} />
-            </Link>
-            <Link href="#solutions" className="px-8 py-4 text-white/80 hover:text-white font-semibold transition-colors flex items-center gap-2">
-              Ver Soluções
-            </Link>
-          </div>
-
-          <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/10 pt-8">
-            <div>
-              <div className="text-2xl font-bold text-white">+R$ 50M</div>
-              <div className="text-xs text-white/40 uppercase tracking-wider">Geridos em Ads</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-white">95%</div>
-              <div className="text-xs text-white/40 uppercase tracking-wider">Taxa de Retenção</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-white">+12</div>
-              <div className="text-xs text-white/40 uppercase tracking-wider">Países Atendidos</div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative hidden lg:block"
-        >
-          <div className="relative z-10 glass-card p-4 rotate-3 transform-gpu">
-             <img 
-              src="/images/hero-bg.png" 
-              alt="R3 Strategy" 
-              className="rounded-xl w-full h-auto shadow-2xl"
+          <div className="aspect-[21/9] rounded-[48px] overflow-hidden border border-white/10 group cursor-pointer shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" 
+              alt="Workspace" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
+            <div className="absolute inset-0 bg-bg/40 group-hover:bg-bg/20 transition-colors duration-500 flex items-center justify-center">
+              <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center text-bg shadow-2xl animate-pulse group-hover:scale-110 transition-transform">
+                <Play fill="currentColor" size={32} />
+              </div>
+            </div>
           </div>
           
-          {/* Floating Elements */}
-          <motion.div 
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-10 -right-10 glass-card p-6 flex items-center gap-4 z-20"
-          >
-            <div className="bg-primary/20 p-3 rounded-lg text-primary">
-              <Zap size={24} />
-            </div>
-            <div>
-              <div className="text-xs text-white/40 uppercase">Performance</div>
-              <div className="text-lg font-bold">Real-time</div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -bottom-10 -left-10 glass-card p-6 flex items-center gap-4 z-20"
-          >
-            <div className="bg-primary/20 p-3 rounded-lg text-primary">
-              <BarChart3 size={24} />
-            </div>
-            <div>
-              <div className="text-xs text-white/40 uppercase">ROI</div>
-              <div className="text-lg font-bold">+340% Avg.</div>
-            </div>
-          </motion.div>
+          {/* Floating Badges */}
+          <div className="absolute -top-6 -left-6 bg-bg border border-accent/30 px-6 py-3 rounded-2xl shadow-2xl">
+            <span className="text-accent font-mono text-sm">★ Award-Winning Agency</span>
+          </div>
+          <div className="absolute -bottom-6 -right-6 bg-bg border border-accent/30 px-6 py-3 rounded-2xl shadow-2xl">
+            <span className="text-accent font-mono text-sm">+25M Gerados para Clientes</span>
+          </div>
         </motion.div>
       </div>
     </section>
