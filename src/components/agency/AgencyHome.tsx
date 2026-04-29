@@ -63,7 +63,7 @@ export const AgencyHome: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                <Link href="/briefing" className="btn-primary-agency px-12 py-5 text-xl">
+                <Link href="/" className="btn-primary-agency px-12 py-5 text-xl">
                   Diagnóstico Estratégico
                   <ArrowRight size={24} />
                 </Link>

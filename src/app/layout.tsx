@@ -15,8 +15,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "R3 Creative | Performance & Growth Platform",
-  description: "Plataforma de crescimento orientada por dados, criatividade e inteligência global.",
+  title: "R3 Creative | Briefing Premium",
+  description: "Transforme sua ideia em um projeto estratégico com a R3 Creative.",
 };
 
 export const viewport = {

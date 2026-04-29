@@ -103,7 +103,7 @@ export const AgencyBEAI: React.FC = () => {
               transition={{ delay: 0.5 }}
               className="mt-12"
             >
-              <Link href="/briefing" className="btn-primary-agency">
+              <Link href="/" className="btn-primary-agency">
                 Conhecer Especialidades
                 <ArrowRight size={18} />
               </Link>

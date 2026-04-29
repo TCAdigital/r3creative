@@ -37,7 +37,7 @@ export const AgencyHero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Link href="/briefing" className="btn-primary-agency px-8 py-4 text-lg w-full sm:w-auto">
+            <Link href="/" className="btn-primary-agency px-8 py-4 text-lg w-full sm:w-auto">
               Iniciar Projeto
               <ArrowRight size={20} />
             </Link>

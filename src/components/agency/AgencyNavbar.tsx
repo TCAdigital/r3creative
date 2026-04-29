@@ -88,7 +88,7 @@ export const AgencyNavbar: React.FC = () => {
         {/* Action Button */}
         <div className="hidden lg:flex items-center gap-4">
           <Link 
-            href="/briefing" 
+            href="/" 
             className="btn-primary-agency text-sm"
           >
             Diagnóstico Estratégico
@@ -127,7 +127,7 @@ export const AgencyNavbar: React.FC = () => {
             ))}
             <div className="mt-auto">
               <Link 
-                href="/briefing" 
+                href="/" 
                 className="btn-primary-agency w-full justify-center text-lg py-4"
               >
                 Iniciar Projeto
